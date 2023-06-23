@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinema ticket</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<div class="container">
+  <form class="ticket-form" action="https://echo.htmlacademy.ru" method="post">
+    <header class="ticket-form-header">
+      <div class="movie-specs-wrapper">
+        <div class="movie-info-wrapper">
+          <h2 class="name-of-movie">Avatar. The Way Of Water</h2>
+          <span class="name-of-movie-badge">Reald 3d</span>
+          <span class="name-of-movie-badge">12+</span>
+        </div>
+        <p class="cinema-name">Sunshine Cinema</p>
+        <time datetime="22-06-2023 19:00">Tonight, 7pm</time>
+      </div>
+      <button class="btn-close">
+        <span>
+          <span class="visually-hidden">Close ticket form</span>
+          <img class="btn-close-img" src="images/close.svg" alt="close button">
+        </span>
+      </button>
+    </header>
+    <hr class="divider">
+
+    <!-- CINEMA SCREEN -->
+    <section class="ticket-form-screen">
+      <div class="cinema-screen">
+        <h2 class="visually-hidden">Movie name</h2>
+        <img class="movie-poster" src="images/avatar-poster.jpg" alt="Avatar Poster" srcset="images/avatar-poster.jpg 1x, images/avatar-poster@2x.jpg 2x">
+      </div>
+
+      <!-- CINEMA SEATS -->
+      <div class="cinema-seats">
+        <ol class="cinema-seats-list">
+
+          <li class="cinema-seat">
+            <label class="seat">
+              <input class="seat-checkbox" type="checkbox" name="row_1_seat_1">
+              <span class="seat-control">
+                <span class="seat-number">99</span>
+              </span>
+            </label>
+          </li>
+
+
+          <li class="cinema-seat">
+            <label class="seat-vip">
+              <input class="seat-checkbox" type="checkbox" name="row_1_seat_1">
+              <span class="seat-control">
+                <span class="seat-number">99</span>
+              </span>
+            </label>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+  </form>
+
+
+</div>
+
+<body>
+
+</body>
+
+</html>

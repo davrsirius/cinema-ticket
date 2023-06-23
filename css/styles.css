@@ -1,0 +1,376 @@
+:root {
+  --ordinary-seat: #03a9f4;
+  --vip-seat: #8bc34a;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: darkcyan;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 940px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  padding-bottom: 500px;
+}
+
+/* Form */
+.ticket-form {
+  background-color: rgb(37, 51, 51);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Header section */
+
+.ticket-form-header {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  /* display: flex;
+  align-items: flex-start;
+  justify-content: space-between; */
+
+}
+
+.movie-specs-wrapper {}
+
+.movie-info-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: aliceblue;
+  padding-right: 60px;
+}
+
+.name-of-movie {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.name-of-movie-badge {
+  margin-right: 10px;
+  display: inline-block;
+  padding: 1px 3px;
+  background-color: #666;
+  border-radius: 5px;
+}
+
+.cinema-name {
+  margin-top: 0;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.btn-close {
+  border: 1px solid #aaa;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  outline: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-close:hover {
+  opacity: 0.7;
+}
+
+.btn-close:active {
+  opacity: 0.5;
+}
+
+.btn-close-img {
+  width: 30px;
+  height: 30px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* Screen */
+
+.ticket-form-screen {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.cinema-screen {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-poster {
+  height: 330px;
+  align-items: center;
+}
+
+/* Cinema seats */
+
+.cinema-seats {}
+
+.cinema-seats-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.cinema-seat {
+  width: 25px;
+  height: 25px;
+}
+
+.seat {
+  cursor: pointer;
+  display: block;
+}
+
+/* Checkboxes */
+
+/* Oddiy holat */
+
+.seat-checkbox {}
+
+.seat-control {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  background-color: var(--ordinary-seat);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  position: relative;
+  color: aliceblue;
+}
+
+.seat-vip .seat-control {
+  background-color: var(--vip-seat);
+}
+
+
+.seat-control::before {
+  /* content: "";
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--ordinary-seat);
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0; */
+  content: "";
+  top: -5px;
+  left: -5px;
+  bottom: -5px;
+  right: -5px;
+  border: 1px dotted var(--ordinary-seat);
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: border 0.3s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.seat-vip .seat-control::before {
+  border: 1px dotted var(--vip-seat);
+}
+
+
+.seat-number {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+/* :focus holati */
+
+.seat-checkbox:focus + .seat-control .seat-number {
+  opacity: 1;
+}
+
+.seat-checkbox:focus + .seat-control::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* .seat-checkbox:focus+.seat-control {
+  outline: 1px dashed var(--ordinary-seat);
+  outline-offset: 3px;
+}
+
+.seat-checkbox:focus+.seat-control .seat-number {
+  visibility: visible;
+} */
+
+
+
+
+/* :hover holati */
+
+.seat:hover .seat-control::before {
+  opacity: 1;
+  transform: scale(1);
+  border: 1px solid var(--ordinary-seat);
+}
+
+.seat:hover .seat-number {
+  opacity: 1;
+}
+
+.seat-vip:hover .seat-control::before {
+  opacity: 1;
+  transform: scale(1);
+  border: 1px solid var(--vip-seat);
+}
+
+.seat-vip:hover .seat-number {
+  opacity: 1;
+}
+
+/*
+.seat-checkbox:hover+.seat-control {
+  outline: 1px solid var(--ordinary-seat);
+  outline-offset: 3px;
+}
+
+.seat-checkbox:hover+.seat-control .seat-number {
+  visibility: visible;
+}
+*/
+
+
+
+
+
+/* :active holati */
+
+.seat:active {
+  opacity: 0.5;
+}
+
+.seat-vip:active {
+  opacity: 0.5;
+}
+
+/*
+.seat-checkbox:active+.seat-control {
+  opacity: 0.6;
+}
+*/
+
+
+/* :checked holati  */
+
+.seat-checkbox:checked+.seat-control::before {
+  opacity: 1;
+  transform: scale(1);
+  border: 3px solid var(--ordinary-seat);
+}
+
+.seat-checkbox:checked+.seat-control .seat-number {
+  opacity: 1;
+}
+
+.seat-vip .seat-checkbox:checked+.seat-control::before {
+  border: 3px solid var(--vip-seat);
+}
+
+.seat-checkbox:checked+.seat-vip.seat-control .seat-number {
+  opacity: 1;
+}
+
+
+
+/*
+
+.seat-checkbox:checked+.seat-control {
+  outline: 3px solid var(--ordinary-seat);
+}
+
+.seat-checkbox:checked+.seat-control .seat-number {
+  visibility: visible;
+}
+*/
+
+
+
+
+/* :disabled holati  */
+
+.seat-checkbox:disabled+.seat-control::before {
+  opacity: 0;
+  transform: scale(0);
+
+
+}
+
+
+.seat-checkbox:disabled+.seat-control {
+  background-color: #ccc;
+}
+
+.seat-checkbox:disabled+.seat-control .seat-number {
+  opacity: 1;
+  color: #999;
+}
+
+
+/* .seat-checkbox:disabled+.seat-control {
+  outline: 0;
+  background-color: #aaa;
+}
+
+.seat-checkbox:disabled+.seat-control .seat-number {
+  visibility: visible;
+} */
+*/
